@@ -158,7 +158,7 @@ let signIn = () => {
                                 window.location = "Dashboard.html"
                             }
                             else {
-                                window.location = "profile.html"
+                                window.location = "index.html"
                             }
                         })
 

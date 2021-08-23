@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged((userInfo) => {
         firebase.database().ref(`orderData`).on("child_added", (data) => {
             var orderDetail = document.getElementById("orderDetail");
             if (data.val().customerID == userInfo.uid) {
-                if (data.val().orderStatus == "pending" || data.val().orderStatus == "deliver") {
+                if (data.val().orderStatus == "pending" || data.val().orderStatus == "accept") {
                     orderDetail.innerHTML += `
                     <div class="card" style="width: 18rem;">
                      <img src="${data.val().dishUrl}" class="card-img-top" alt="...">

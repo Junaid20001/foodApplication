@@ -56,6 +56,8 @@ let orderFunc = (dishID, resID) => {
                 text: "check status in profile",
                 icon: "success",
                 button: "Ok",
+              }).then(()=>{
+                window.location = "profile.html"
               })
 
             });
@@ -66,6 +68,8 @@ let orderFunc = (dishID, resID) => {
               text: "You can't order yourself",
               icon: "error",
               button: "Ok",
+            }).then(()=>{
+              window.location = "index.html"
             });
           }
         })
@@ -96,18 +100,44 @@ let checkUser = () => {
 
 var signedUser = localStorage.getItem("uid");
 let logoutBtn = document.getElementById("logoutBtn")
+let accBtn = document.getElementById("accBtn")
+let ordBtn = document.getElementById("ordBtn")
+
 if (signedUser) {
+  accBtn.style.display = "none"
   logoutBtn.innerHTML = "Logout"
   logoutBtn.setAttribute("onclick", "signOut()")
 }
+else{
+  ordBtn.style.display = "none"
+}
 
+let Dashboard = () =>{
+  var check_user = firebase.auth().currentUser;
+  if (check_user !== null) {
+      firebase.database().ref(`users/${check_user.uid}`)
+          .once('value', (data) => {
+              let userLogin = data.val();
+              // console.log(userLogin)
+              if (userLogin.state == "Restaurant") {
+                  window.location = "Dashboard.html"
+              }
+              else {
+                  window.location = "profile.html"
+              }
+          })
 
+  }
+
+}
 // signout
 let signOut = () => {
   setTimeout(() => {
     firebase.auth().signOut().then(() => {
       localStorage.removeItem("uid")
       logoutBtn.innerHTML = "Login"
+      accBtn.style.display = "inline-block"
+      ordBtn.style.display = "none"
     });
   }, 500);
 }

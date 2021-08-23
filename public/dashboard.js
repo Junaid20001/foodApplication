@@ -139,7 +139,7 @@ firebase.auth().onAuthStateChanged((userInfo) => {
         firebase.database().ref(`orderData`).on("child_added", (data) => {
             var deliver = document.getElementById("deliver");
             if (data.val().restaurantID == userInfo.uid) {
-                if (data.val().orderStatus == "deliver") {
+                if (data.val().orderStatus == "delivered") {
                     deliver.innerHTML += `
                     <div class="card" style="width: 18rem;">
                      <img src="${data.val().dishUrl}" class="card-img-top" alt="...">
