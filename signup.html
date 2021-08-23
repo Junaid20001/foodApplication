@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up | Food App</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyB3Jt-o4o4fGOkHYXYPpZdKlLhzNEnqnaY",
+    authDomain: "foodapp-d4d9e.firebaseapp.com",
+    projectId: "foodapp-d4d9e",
+    storageBucket: "foodapp-d4d9e.appspot.com",
+    messagingSenderId: "411334463762",
+    appId: "1:411334463762:web:74a1180610e699347f23cb",
+    measurementId: "G-RYPLFYWMLZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  
+</head>
+
+<body>
+  <div class="splash splashHide" id="splashScreen">
+    <i class="fa fa-spinner fa-spin" id="load" ></i>
+  </div>
+  <header>
+    <div class="header">
+      <div class="nav-bar">
+          <div class="logo">
+              <a href="index.html"><img src="Images/logo.png" alt="Logo" width="80px"></a>
+          </div>
+          <div class="navItems">
+              <ul id="MenuItems">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="">Products</a></li>
+                  <li><a href="">About</a></li>
+                  <li><a href="">Contact</a></li>
+              </ul>
+            </div>
+          <img src="Images/menu.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+</div>
+</header>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <h1 class="display-1 mb-5 text-center" style="color: #86b61f;font-weight: bold;">Sign Up</h1>
+        <form  class="row g-2 " target="frame">
+          
+          <div class="col-12">
+            <label for="userName" class="form-label fs-5 formFields">User name</label>
+            <input type="text" class="form-control borderDesign" id="userName" >
+          </div>
+          <div class="col-12">
+            <label for="userEmail" class="form-label fs-5 formFields">Email</label>
+            <div class="input-group">
+              <input type="email" class="form-control borderDesign" id="userEmail"
+                aria-describedby="inputGroupPrepend2">
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="userPassword" class="form-label fs-5 formFields">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control borderDesign" id="userPassword"
+                aria-describedby="inputGroupPrepend2" >
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="userPhone" class="form-label fs-5 formFields">Phone Number</label>
+            <div class="input-group">
+              <input type="tel" class="form-control borderDesign" id="userPhone"
+                aria-describedby="inputGroupPrepend2" >
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="userAddress" class="form-label fs-5 formFields">Address</label>
+            <div class="input-group">
+              <input type="text" class="form-control borderDesign" id="userAddress"
+                aria-describedby="inputGroupPrepend2" >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="userCiy" class="form-label fs-5 formFields">City</label>
+            <input type="text" class="form-control borderDesign" id="userCiy" >
+          </div>
+          <div class="col-md-6">
+            <label for="userState" class="form-label fs-5 formFields">State</label>
+            <select class="form-select selectDesign" id="userState" >
+              <option selected="" disabled>Choose your role</option>
+              <option>User</option>
+              <option>Restaurant</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2">
+              <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button class="btn formBtn" type="submit" onclick="signUp()">Sign Up</button>
+          </div>
+          <a href="login.html" class="link-danger">I am already member</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <iframe name="frame"></iframe>
+
+
+  <footer>
+    <div class="footer">
+      <p class="copyright">Copyright 2021 - Hackathon App</p>
+    </div>
+    </div>
+  </footer>
+
+  <!-- js links -->
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

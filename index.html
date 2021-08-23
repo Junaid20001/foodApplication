@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyB3Jt-o4o4fGOkHYXYPpZdKlLhzNEnqnaY",
+      authDomain: "foodapp-d4d9e.firebaseapp.com",
+      projectId: "foodapp-d4d9e",
+      storageBucket: "foodapp-d4d9e.appspot.com",
+      messagingSenderId: "411334463762",
+      appId: "1:411334463762:web:74a1180610e699347f23cb",
+      measurementId: "G-RYPLFYWMLZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="nav-bar">
+        <div class="logo">
+          <a href="index.html"><img src="Images/logo.png" alt="Logo" width="80px"></a>
+        </div>
+        <div class="navItems">
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li class="btn account" onclick="checkUser()">Account</li>
+            <li class="btn btn-danger" id="logoutBtn">Login</li>
+          </ul>
+        </div>
+        <img src="Images/menu.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <h1>Welcome to <br><span class="webText">Food Website</span></h1>
+          <p style="color: black;">If more of us valued food and cheer and song above hoarded gold, it would be a
+            merrier world</p>
+          <button type="button" class="btn menuBtn">Menu</button>
+        </div>
+        <div class="col-2 bannerImg">
+          <img src="images/hero-banner.jpg" alt="" />
+          <div class="photo-bg"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- Featured Dishes Section -->
+    <div class="dish-container">
+      <h2 class="title">All Dishes</h2>
+      <div class="row" id="dishItems">
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <p class="copyright">Copyright 2021 - Hackathon App</p>
+    </div>
+    </div>
+  </footer>
+
+
+  <!-- JS link -->
+  <script src="main.js"></script>
+</body>
+
+</html>
